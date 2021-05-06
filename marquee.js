@@ -7,7 +7,7 @@
 
 	const marqueeWindowWidth = marqueeWindow.offsetWidth;
 
-	let marqueeSlider = document.getElementsByClassName("marqueeSlider")[0];
+	let [marqueeSlider] = document.getElementsByClassName("marqueeSlider");
 	// console.log(marqueeSlider)
 	const marqueeSliderWidth = marqueeSlider.offsetWidth;
 
