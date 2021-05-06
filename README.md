@@ -1,2 +1,2 @@
 # Marquee
- Marquee in JavaScript JS
+Looping Marquee
