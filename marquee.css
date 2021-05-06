@@ -7,6 +7,9 @@
 	height: 100px;
 	width: 90%;
 	margin: auto;
+	display: flex;
+	position: relative;
+	overflow-x: hidden;
 }
 
 .marqueeContent {
@@ -16,7 +19,4 @@
 	
 	height: 100%;
 	width: max-content;
-
-	position: relative;
-    left: 10%;
 }
