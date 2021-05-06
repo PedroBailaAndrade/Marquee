@@ -18,4 +18,18 @@
     flex-direction: row;
 	height: 100%;
 	width: max-content;
+	position: absolute;
+}
+
+.marqueeSlider.animation {
+	animation: marqueeSliderMove 5s infinite linear;
+}
+
+@keyframes marqueeSliderMove {
+	from {
+		left: 0%;
+	}
+	to {
+		left: -50%;
+	}
 }
