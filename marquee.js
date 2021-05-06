@@ -8,22 +8,25 @@
 	const marqueeWindowWidth = marqueeWindow.offsetWidth;
 
 	let [marqueeContent] = document.getElementsByClassName("marqueeContent");
+	// console.log(marqueeContent)
 	const marqueeContentWidth = marqueeContent.offsetWidth;
 
-	// console.log(marqueeContent)
-
-	copyMarqueeContent();
+	let [marqueeContentChild] = document.getElementsByClassName("marqueeContentChild");
+	// console.log(marqueeContentChild)
+	const marqueeContentChildWidth = marqueeContentChild.offsetWidth;
 
 	function copyMarqueeContent() {
-		const timesToCopy =  Math.round(marqueeWindowWidth / marqueeContentWidth) + 1;
+		const timesToCopy =  Math.round(marqueeWindowWidth / marqueeContentChildWidth);
 		// console.log("times to compy: ", timesToCopy);
 		for (let i = 1; i <= timesToCopy; i++) {
-			marqueeContentClone = marqueeContent.cloneNode(true);
+			marqueeContentChildClone = marqueeContentChild.cloneNode(true);
 			// console.log('content copied');
-			// console.log(marqueeContentClone);
-			marqueeWindow.appendChild(marqueeContentClone);
+			// console.log(marqueeContentChildClone);
+			marqueeContent.appendChild(marqueeContentChildClone);
 			}
 	}
+
+	copyMarqueeContent();
 	
 	let marqueeCollection = document.getElementsByClassName("marqueeContent")
 	// console.log(marqueeCollection);
