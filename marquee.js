@@ -7,7 +7,7 @@
 
 	const marqueeWindowWidth = marqueeWindow.offsetWidth;
 
-	let [marqueeSlider] = document.getElementsByClassName("marqueeSlider");
+	let marqueeSlider = document.getElementsByClassName("marqueeSlider")[0];
 	// console.log(marqueeSlider)
 	const marqueeSliderWidth = marqueeSlider.offsetWidth;
 
@@ -27,41 +27,21 @@
 	}
 
 	copyMarqueeContent();
-	
-	let marqueeCollection = document.getElementsByClassName("marqueeSlider")
-	// console.log(marqueeCollection);
 
-	let marqueeCollectionPositions = [];
+	function animateMarqueeSlider() {
 
-	function printMarqueeCollectionPositions(array) {
-		for (let index = 0; index < array.length; index++) {
-			// console.log(array[index].offsetLeft);
-			marqueeCollectionPositions.push(array[index].offsetLeft);
-		}
-		// console.log(marqueeCollectionPositions);
-	}
+		setInterval(function(){ 
+			if (marqueeSlider.offsetLeft <= - marqueeContentWidth) {
+				marqueeSlider.classList.remove("animation");
+			}
 
-	printMarqueeCollectionPositions(marqueeCollection);
-	
-	function moveMarqueeCollectionPositions() {
+			if (marqueeSlider.offsetLeft == 0) {
+				marqueeSlider.classList.add("animation");
+			}
+			// marqueeSlider.style.left = (marqueeSlider.style.left.replace("px", "") - 1) + px;
+		}, 10);
 
-		const marqueeLastContentPosition = marqueeCollection[marqueeCollection.length - 1].offsetLeft + px;
-		// console.log(marqueeLastContentPosition);
-
-		for (let index = 0; index < marqueeCollectionPositions.length; index++) {
-			marqueeCollection[index].style.left = marqueeCollectionPositions[index] + px;
-			marqueeCollection[index].style.position = "absolute";
-
-			setInterval(function(){ 
-				if (marqueeCollection[index].offsetLeft == - marqueeSliderWidth) {
-					// console.log("stop");
-					marqueeCollection[index].style.left = marqueeLastContentPosition;
-				}
-				marqueeCollection[index].style.left = (marqueeCollection[index].style.left.replace("px", "") - 1) + px;
-			}, 10);
-
-		}
 
 	}
 
-	moveMarqueeCollectionPositions();
+	animateMarqueeSlider();
