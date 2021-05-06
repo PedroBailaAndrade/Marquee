@@ -7,7 +7,6 @@
 	height: 100px;
 	width: 90%;
 	margin: auto;
-	display: flex;
 	position: relative;
 	overflow-x: hidden;
 	background-color: cyan;
@@ -17,7 +16,6 @@
 	align-items: center;
     display: inline-flex;
     flex-direction: row;
-	
 	height: 100%;
 	width: max-content;
 }
