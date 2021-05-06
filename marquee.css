@@ -10,9 +10,10 @@
 	display: flex;
 	position: relative;
 	overflow-x: hidden;
+	background-color: cyan;
 }
 
-.marqueeContent {
+.marqueeSlider {
 	align-items: center;
     display: inline-flex;
     flex-direction: row;

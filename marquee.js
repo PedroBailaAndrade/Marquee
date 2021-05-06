@@ -7,28 +7,28 @@
 
 	const marqueeWindowWidth = marqueeWindow.offsetWidth;
 
+	let [marqueeSlider] = document.getElementsByClassName("marqueeSlider");
+	// console.log(marqueeSlider)
+	const marqueeSliderWidth = marqueeSlider.offsetWidth;
+
 	let [marqueeContent] = document.getElementsByClassName("marqueeContent");
 	// console.log(marqueeContent)
 	const marqueeContentWidth = marqueeContent.offsetWidth;
 
-	let [marqueeContentChild] = document.getElementsByClassName("marqueeContentChild");
-	// console.log(marqueeContentChild)
-	const marqueeContentChildWidth = marqueeContentChild.offsetWidth;
-
 	function copyMarqueeContent() {
-		const timesToCopy =  Math.round(marqueeWindowWidth / marqueeContentChildWidth);
+		const timesToCopy =  Math.round(marqueeWindowWidth / marqueeContentWidth) + 1;
 		// console.log("times to compy: ", timesToCopy);
 		for (let i = 1; i <= timesToCopy; i++) {
-			marqueeContentChildClone = marqueeContentChild.cloneNode(true);
+			marqueeContentClone = marqueeContent.cloneNode(true);
 			// console.log('content copied');
-			// console.log(marqueeContentChildClone);
-			marqueeContent.appendChild(marqueeContentChildClone);
+			// console.log(marqueeContentClone);
+			marqueeSlider.appendChild(marqueeContentClone);
 			}
 	}
 
 	copyMarqueeContent();
 	
-	let marqueeCollection = document.getElementsByClassName("marqueeContent")
+	let marqueeCollection = document.getElementsByClassName("marqueeSlider")
 	// console.log(marqueeCollection);
 
 	let marqueeCollectionPositions = [];
@@ -53,7 +53,7 @@
 			marqueeCollection[index].style.position = "absolute";
 
 			setInterval(function(){ 
-				if (marqueeCollection[index].offsetLeft == - marqueeContentWidth) {
+				if (marqueeCollection[index].offsetLeft == - marqueeSliderWidth) {
 					// console.log("stop");
 					marqueeCollection[index].style.left = marqueeLastContentPosition;
 				}
